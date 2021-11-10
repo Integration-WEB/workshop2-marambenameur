@@ -1,0 +1,42 @@
+$background-color:white ;
+.text{ 
+    color: red;
+    font-size: 20px;
+} 
+textarea{
+    @extend .text;
+}
+h1
+{
+    @extend .text;
+} 
+@mixin btn-block ($margin :5px, $weight:solid ,$color:yellow ) {
+border: $margin $weight $color;
+
+
+} 
+.btn {
+    @include btn-block(3px,solid ,yellow )
+}  
+@function background ($background-color){ 
+    @if  ($background-color == white){
+       @return black  ; 
+    } @else {
+        @return white;
+    }
+
+} 
+$langages:"react","spring","python";
+@function first ($list){
+    @return nth($list,1);
+} 
+.text1{content: first($langages);
+
+} 
+@function last ($list)
+{
+    @return nth($list,-1);
+} 
+.text2{
+    content: last($langages);
+}
